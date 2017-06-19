@@ -1,0 +1,179 @@
+\documentclass[a4paper]{scrreprt}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{ Neighborhood Security}
+\subtitle{Design document}
+\author{Simone Ripamonti, Luca Stornaiuolo}
+\titlehead{\centering\includegraphics[width=6cm]{polimi-logo}}
+
+
+\begin{document}
+\maketitle
+
+\null\vfill
+\noindent
+Neighborhood Security Design Document \\ 
+Version v1.0, June 2017\\
+Copyright 2017 - Simone Ripamonti, Luca Stornaiuolo\\
+\newpage
+
+\begin{abstract}
+Short abstract of the app (max 150 words) 
+\end{abstract}
+
+\tableofcontents
+
+
+% ______________________
+% chapter Introduction
+% ______________________
+\chapter{Introduction}
+
+\section{About the Design Document}
+
+\section{Platform}
+
+\section{Risk analysis}
+
+\section{Time constraints}
+
+\section{Stakeholders}
+
+% ______________________
+% chapter General Overview
+% ______________________
+\chapter{General overview}
+
+\section{Idea}
+
+\section{Core features}
+
+\section{General qualities}
+
+\section{Functional requirements}
+
+\section{Non-functional requirements}
+
+% ______________________
+% chapter Data Design
+% ______________________
+\chapter{Data design}
+
+\section{Internal software data structure}
+
+\section{Database design \& implementation}
+
+% ______________________
+% chapter Architectures and Component Level Design
+% ______________________
+\chapter{Architectures and component level design}
+
+\section{System architecture}
+
+\section{Architectural design}
+
+\section{Java package organization}
+
+\section{Security}
+
+
+% ______________________
+% chapter User Interfaces
+% ______________________
+\chapter{User interfaces}
+
+\section{Splash screen}
+
+\section{Home and drawer}
+
+\section{Authentication}
+
+\section{Map}
+
+\section{Subscription list}
+
+\section{Subscription creation}
+
+\section{Event list}
+
+\section{Event creation}
+
+\section{Event detail}
+
+
+% ______________________
+% chapter External Services
+% ______________________
+\chapter{External services}
+
+\section{Google Firebase}
+
+\subsection{Authentication}
+usato per consentire l'autenticazione tramite facebook, google e email
+
+\subsection{Cloud Messaging}
+usato per consentire l'invio delle notifiche ai disposiivi da parte del web service
+
+\section{Google Play Services}
+
+\subsection{Authentication}
+usato per l'autenticazione tramite firebase
+
+\subsection{Location Places}
+usato place autocomplete per semplificare la segnalazione di event, creazione di nuove sottoscrizioni, ricerca eventi, posizionamento mappa
+
+\subsection{Maps}
+usato per mostrare mappa degli eventi e come header nel dettaglio evento
+
+\section{Facebook}
+usato per l'autenticazione tramite firebase
+
+\section{Neighborhood Security Webservice}
+rest api per gli  eventi 
+
+\section{Other minor services}
+glide, altre librerie
+
+% ______________________
+% chapter UML diagrams
+% ______________________
+
+\chapter{UML diagrams}
+
+\section{Use cases diagrams}
+
+\section{Class diagrams}
+
+\section{Sequence diagrams}
+
+% ______________________
+% chapter Test cases
+% ______________________
+
+\chapter{Test cases}
+
+% ______________________
+% chapter Cost Estimation
+% ______________________
+
+\chapter{Cost estimation}
+
+
+
+%\bibliographystyle{alpha}
+%\bibliography{sample}
+
+\end{document}
