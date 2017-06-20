@@ -81,7 +81,7 @@ Our time constraints were not as strict as they would have been in a project dev
 \section{Stakeholders}
 The main stakeholders of our project is the professor and the other students attending the presentation. The audience wants to have a clear idea about the project idea and realization. Professor's main goal is to check if the concepts taught during the course are clear to us and if we had success in implementing them in our project.
 \par Even though we had not currently planned to release our application in the Google Play Store, we designed it keeping simple and intuitive, suitable for every kind of users.
-\par We use English as main language for our project, due to its diffusion in the world, and we currently provide an Italian translation. If we ever decide to officially release Neighborhood Security, we will introduce other major languages to make it more usable.
+\par We use English as main language for our project, due to its diffusion in the world, and we currently provide an Italian translation. If we ever decide to officially release \emph{Neighborhood Security}, we will introduce other major languages to make it more usable.
 
 % ______________________
 % chapter General Overview
@@ -89,8 +89,80 @@ The main stakeholders of our project is the professor and the other students att
 \chapter{General overview}
 
 \section{Idea}
+\emph{Neighborhood Security} is a native Android application that provides  users the possibility to report criminal events and receive notification about favourite areas.
+\par The application does not require users to be authenticated in order to browse the reported events, indeed everyone can easily  browse the reported events over a map and easily understand the safety of a certain location by simply checking how many reports have been done and of which kind.
+\par Users can register an account, using a combination of email and password or using their Facebook or Google account. Registered users have access to a new set of functionalities, such as  subscribing to notification about a certain location, reporting events and voting already submitted events. Once subscribed to a location, users can now receive real time notifications as soon as another user report a criminal event.
+\par The main components of the project are:
+\begin{itemize}
+\item A server side part, composed by a relational database that contains events and subscriptions and the application logic that is in charge of notifying interested users about events;
+\item A client side part, the Android application,  which tasks are to query the relational database, show the gathered informations and provide users a point of interaction with the service.
+
+\end{itemize}
 
 \section{Core features}
+Here we list the core functionalities that can be found in our application. We decided to divide them considering the fragment in which is organized, allowing the reader to easily understand them and where they could be found in the application.
+\begin{itemize}
+\item Home
+\begin{itemize}
+\item First point of interaction with the user. It simply shows the user the two main relevant features of the application: seeing reported events and subscribe to notifications.
+\item A lateral menu is provided to allow the user to access to other features, first of all the creation of an account that gives access to the interesting features of the application.
+\item A set of icons provides the user with insights about his usage of the application.
+\end{itemize}
+
+\item Authentication
+\begin{itemize}
+\item Allows the user to authenticate using three different ways: a combination of email and password, a Google account or a Facebook account.
+\item If they choose email and password authentication, users also have the capability to reset the chosen password in case they have forgotten it.
+\item Choosing the other methods, users are required to allow the application to access to their personal information such as profile information and email address
+\end{itemize}
+
+\item Event map
+\begin{itemize}
+\item Provides users the possibility to see reported events placed on a map. Different kind of events are represented by means of different marker icons.
+\item If the user gave permission to access location informations, the map is centered in the current position.
+\item By clicking on a marker, user can see more detailed information about the reported event
+\item In order to decrease the number of markers placed in the map, events are clustered according to their position. By clicking on a cluster, users can see the list of events that are contained in that cluster
+\item A search bar is provided in order to easily search and move to a particular location, with an auto-complete feature provided by Google
+\end{itemize}
+
+\item Event list
+\begin{itemize}
+\item Shows a list of events that can be refreshed if the list is related to a specific location, subscription or submitting user. 
+\item User can easily understand the kind, by looking at characteristic icon, the location and date of the event.
+\item By clicking on the event, a new view containing its details is shown
+\item If the user is the creator of a particular event, he can delete it by simply long clicking on the event
+\end{itemize}
+
+\item Event creation
+\begin{itemize}
+\item Only authenticated users have access to this feature
+\item Events are categorized according to the kind of event: burglary, .... etc
+\item Users must insert a brief description of the event
+\item Position of the event can be chosen by inserting the place name (using Google Places auto-complete service) or by inserting pure coordinates, that can be obtained by using the location service if authorized.
+\end{itemize}
+
+\item Event detail
+\begin{itemize}
+\item Shows all the informations available about the selected event. Reporter name is never shown to other users by design.
+\item A small map allows users to understand more precisely where the event happened.
+\item Authenticated users can vote the event. The more an event has been voted, the more we consider reliable the reported event.
+
+\end{itemize}
+
+\item Subscription list
+\begin{itemize}
+\item Shows a list of subscriptions, if any, of the currently logged in user. The user can enable or disable notifications about a particular subscription and delete them if he is no longer interested in.
+\item By clicking on a subscription, a new view containing the list of events that match the subscription is shown
+\end{itemize}
+
+\item Subscription creation
+\begin{itemize}
+\item Only authenticated users have access to this feature
+\item Subscription are characterized by two components: a position, that can be a place or GPS coordinates, and a radius, up to 2000 metres.
+
+\end{itemize}
+
+\end{itemize}
 
 \section{General qualities}
 
