@@ -15,7 +15,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{ Neighborhood Security}
-\subtitle{Design document}
+\subtitle{Software Design Document}
 \author{Simone Ripamonti, Luca Stornaiuolo}
 \titlehead{\centering\includegraphics[width=6cm]{polimi-logo}}
 
@@ -25,14 +25,14 @@
 
 \null\vfill
 \noindent
-Neighborhood Security Design Document \\ 
+Neighborhood Security Design Document \\
 Version v1.0, June 2017\\
 Copyright 2017 - Simone Ripamonti, Luca Stornaiuolo\\
 \newpage
 
-\begin{abstract}
-Short abstract of the app (max 150 words) 
-\end{abstract}
+%\begin{abstract}
+%Short abstract of the app (max 150 words)
+%\end{abstract}
 
 \tableofcontents
 
@@ -43,14 +43,45 @@ Short abstract of the app (max 150 words)
 \chapter{Introduction}
 
 \section{About the Design Document}
+In this section we want to introduce briefly our application.
+\par The application is developed for the course of "Design and implementation of Mobile Applications" at Politecnico di Milano. The goal of the course is to efficiently design and implement a mobile application on a platform of our choice. This documents illustrates the decisions we made in order to accomplish this goal.
+\par This Software Design Document is a document that provides documentation that will be used as a overall guidance to the architecture of the software project. In this document we provide a documentation of the software design of the project, including use case models, class and sequence diagrams.
+\par The purpose of this document is to provide a full description of the design of Neighborhood Security, a native Android application, providing insights into the structure and design of each component.
 
 \section{Platform}
+The choice of the platform was left to us. We decided to develop for Android.
+\par Main reasons:
+\begin{itemize}
+\item Android native applications are written in Java, which is a language that is familiar to us
+\item We both use Android devices everyday, so we are familiar with the environment and we have the possibility to test the application on our physical devices
+\end{itemize}
+
+\section{Choice of the application}
+We had full choice on the purpose of the application.
+\par The choice fall on an application that could support associations like "Associazione Controllo del Vicinato", (volontari e specialisti volontari che forniscono consulenza e supporto alle Amministrazioni Comunali, alle associazioni locali e a privati cittadini che intendono sviluppare nel proprio territorio programmi di sicurezza partecipata e organizzare gruppi di Controllo del Vicinato). The application gives the possibility to alert other user about criminal events that have just happened.
+\par The particulary that characterises this application is the possibility to receive notification about events in the user's favourite locations in real time and to brows a map of all the signaled events.
+\par The idea for the application came from personal experience. In our towns, groups of people are currently reporting criminal events using Whatsapp group chat, but this is not user friendly:
+\begin{itemize}
+\item You need to know and contact one of the administrators of the group
+\item You need to share your personal phone number and information
+\item You cannot have an ensemble view of all the reported events
+\end{itemize}
 
 \section{Risk analysis}
+During the problem analysis, we identified some risks that can compromise the correct development of the project.
+\par We had to be very careful during the requirements collection phase, because the requirements must be clear so to avoid delays due to misunderstandings.
+\par Modelling formally the application allows the reader not to be confused by it and learn requirements in a clear way.
+\par Another possible delay was learning Android concepts or techniques in advanced stages of the project, leading to possible code rewriting and inevitable loss of time.
 
 \section{Time constraints}
+Our time constraints were not as strict as they would have been in a project developed for real stakeholders. We had no precise and punctuated deadlines, but to deliver the project among the different call dates for the course.
+\par We begin to develop our application at the beginning of the second semester). Developing, testing and creating documentation took 3 months. Even the server side part was built and manteined during the same time span. We started development at April 2017 and complete it in July 2017.
+\par The team is composed by two people with both solid Java knowledge but little experience in Android, thus we had to dedicate some time to learn the environment.
 
 \section{Stakeholders}
+The main stakeholders of our project is the professor and the other students attending the presentation. The audience wants to have a clear idea about the project idea and realization. Professor's main goal is to check if the concepts taught during the course are clear to us and if we had success in implementing them in our project.
+\par Even though we had not currently planned to release our application in the Google Play Store, we designed it keeping simple and intuitive, suitable for every kind of users.
+\par We use English as main language for our project, due to its diffusion in the world, and we currently provide an Italian translation. If we ever decide to officially release Neighborhood Security, we will introduce other major languages to make it more usable.
 
 % ______________________
 % chapter General Overview
@@ -127,6 +158,9 @@ usato per consentire l'autenticazione tramite facebook, google e email
 \subsection{Cloud Messaging}
 usato per consentire l'invio delle notifiche ai disposiivi da parte del web service
 
+\subsection{Job Dispatcher}
+usato per schedulare ogni mezzanotte la rimozione di eventi e sottoscrizioni che non sono state refreshate da più di 7 giorni, per rimouvere eventi/sottoscrizioni eventualmente rimosse
+
 \section{Google Play Services}
 
 \subsection{Authentication}
@@ -142,7 +176,7 @@ usato per mostrare mappa degli eventi e come header nel dettaglio evento
 usato per l'autenticazione tramite firebase
 
 \section{Neighborhood Security Webservice}
-rest api per gli  eventi 
+rest api per gli  eventi
 
 \section{Other minor services}
 glide, altre librerie
