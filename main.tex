@@ -104,7 +104,7 @@ Here we list the core functionalities that can be found in our application. We d
 \begin{itemize}
 \item Home
 \begin{itemize}
-\item First point of interaction with the user. It simply shows the user the two main relevant features of the application: seeing reported events and subscribe to notifications.
+\item First point of interaction with the user. A simple showcase presents to the user the two main features of the application: seeing reported events and subscribe to notifications.
 \item A lateral menu is provided to allow the user to access to other features, first of all the creation of an account that gives access to the interesting features of the application.
 \item A set of icons provides the user with insights about his usage of the application.
 \end{itemize}
@@ -159,16 +159,115 @@ Here we list the core functionalities that can be found in our application. We d
 \begin{itemize}
 \item Only authenticated users have access to this feature
 \item Subscription are characterized by two components: a position, that can be a place or GPS coordinates, and a radius, up to 2000 metres.
-
 \end{itemize}
 
 \end{itemize}
 
 \section{General qualities}
+Our application has several characteristics of accessibility and usability. The user interface is easy to use and intuitive, so that the user quickly learns what to do. The design is enthralling and captivating to guarantee the best experience possible.
+\begin{itemize}
+\item Usability: the main actor of the system is the end user. For this reason we decided to make the user interface as easy as possible, but still keeping all the functionalities needed to provide the best user experience.
+\item Nice User Interface: we tried to make our application as nice as possible, following Google's Material Design guidelines to have a clean and simple design.
+\item No Account Required: we tried to provide the greatest number of features without needing them to register for an account
+\item Offline Mode: even when the user is not connected to a network, he can continue to use the application thanks to our caching system
+\end{itemize}
 
 \section{Functional requirements}
+In this section we present the requirements necessary to the correct behaviour of the system:
+\par \underline{General requirements:}
+\begin{itemize}
+\item The application has to be comprehensible by as many people as possible, so we decided to use English language and provide an Italian translation.
+\item The application has to start with a splash activity, meanwhile the initial settings are done
+\item The application has to provide a main activity that gives the user access to all the application functionalities
+\item The application needs to allow user to create an account but still partially work if the user doesn't want to
+\item The application has to provide users the possibility to report new events and create subscriptions
+\item The application has to provide a way to browse events and to manage active subscriptions
+\end{itemize}
+
+\par \underline{Home requirements}
+\begin{itemize}
+\item On first run, Home activity should introduce the application features to the user
+\item Home activity should provide immediate access to Subscription List functionality and Event Map functionality
+\item Home activity should have a left drawer to give user access to Authentication and additional features, such as Event and Subscription creation and user's Event list which are available only to authenticated users. The drawer should also display the current logged in user, if any.
+
+\end{itemize}
+
+\par \underline{Event map requirements}
+\begin{itemize}
+\item Event map activity should display events in the map in a clear and distinguishable way, clustering events by positions and using different icons according to the event type
+\item Event map activity should provide a search bar in which it is possible to search for a location and then update map position to the request location
+\item Event map activity should provide the possibility to create an event or subscription at a particular map position
+\end{itemize}
+
+\par \underline{Event create requirements}
+\begin{itemize}
+\item Event create activity should be accessible only to registered users
+\item Event create activity should display an event type list where to select: burglary, etc.
+\item Event create activity should allow users to enter a brief description of the event
+\item Event create activity should allow user to select a location based on its "name" (??) or GPS coordinate
+\item Event create activity should inform the user about the success or failure of the request
+\end{itemize}
+
+\par \underline{Event list requirements}
+\begin{itemize}
+\item Event list activity should display all the events matching one of these criteria: id of the creating user, area of the event, subscription id, generic list
+\item Event list activity should provide a way to refresh the list of events if they do not belong to a generic list
+\item Event list activity should provide a button to move to Event create activity
+\item Event list activity should provide a search bar to select a new area of the events to be displayed
+\item Event list activity should allow event's creator to delete the events by using a popup menu
+\item Event list activity should provide events sorted by creation date
+\end{itemize}
+
+\par \underline{Event detail requirements}
+\begin{itemize}
+\item Event detail activity should display all the informations belonging to a single event: event type, location, creation date, number of votes
+\item Event detail activity should provide a map to easily understand where the event took place
+\item Event detail activity should provide a button to vote the currently displayed event, and a way to unvote it
+\end{itemize}
+
+\par \underline{Subscription create requirements}
+\begin{itemize}
+\item Subscription create activity should allow the choice of the location based on "name" (????) or GPS coordinates
+\item Subscription create activity should allow the choice of the radius of interest up to 2000m
+\item Subscription create activity should inform the user about the success or failure of the request
+\end{itemize}
+
+\par \underline{Subscription list requirements}
+\begin{itemize}
+\item Subscription list activity should be accessible only by registered users
+\item Subscription list activity should only display the subscriptions of the currently logged in user
+\item Subscription list activity should provide a way to refresh the list of subscription
+\item Subscription list activity should provide a button to move to Subscription create activity
+\item Subscription list activity should provide a way to enable or disable notification about a given subscription
+\end{itemize}
+
+\par \underline{Authentication requirements}
+\begin{itemize}
+\item Authentication activity should be accessible only to users not currently logged in
+\item Authentication activity should allow users to register or login using email, Facebook or Google
+\item Authentication activity should delegate registration/access using Facebook or Google to the respective libraries
+\item Authentication activity should delegate registration/access using email to Email Authentication activity
+\item Authentication activity should return the user back to Home activity if the authenticaiton is succesfull
+\end{itemize}
+
+\par \underline{Email Authentication requirements}
+\begin{itemize}
+\item Email Authentication activity should allow user to register, login or reset the password
+\item Email Authentication should display fields for username, password and email, which might be hidden according to the operation the user is going to perform
+\end{itemize}
 
 \section{Non-functional requirements}
+These are the non-functional requirements that are necessary to guarantee a functional application.
+\begin{itemize}
+\item \textbf{Portability}: in order to be used by the largest number of user possible, the application should also be extended to iOS platform and desktop users. This are modifications that will be further introduced by us in the future. 
+\item \textbf{Stability}: the system should always be available to be used at any time it is needed. System failures and server side crashes must be avoided in order to guarantee this requirement.
+\item \textbf{Availability}: the services must always be up and running even during a failure period. An administrator must restore the service as soon as possible. A backup facility must be present in order to do so.
+\item \textbf{Reliability}: the data must be reliable, meaning that they are trustworthy and not corrupted by any other. So the remote database must be protected and secure for this purpose
+\item\textbf{ Efficiency}: the application needs to use as less resource as possible. Algorithms and data structures have been developed to optimize the consumption of resources in the best way possible. 
+\item \textbf{Extensibility}: the application was programmed with the idea that further extensions could be added in a simple way without deeply modifying the core of the application
+\item \textbf{Maintainability}: code is easily readable and commented, in this way it is maintainable by future programmers
+
+\end{itemize}
 
 % ______________________
 % chapter Data Design
@@ -176,21 +275,126 @@ Here we list the core functionalities that can be found in our application. We d
 \chapter{Data design}
 
 \section{Internal software data structure}
+The structure of our application is divided in two main parts: client-side and server-side.
+\par All the event, subscription and user data reside on a external database. These data are cached on the local database to allow the application to work also if Internet access is currently unavailable. Locally stored data is timestamped, in this way we can remove old data in an automatized way. Neighborhood Security is based on data displaying and data creation, so the data is isolated and accessed only with a Model-View-Controller system. The user by navigating in the different sections of the application will trigger data request from the database. Locally available data is shown immediately, meanwhile new fresh data is downloaded in an asynchronous way and the views are update as soon as possible. The communication between the server and the database is handled by a Retrofit client that uses REST to communicate to our webservice and perform CRUD operations. The webservice is hosted on Heroku and has been developed using Java 8 and Jersey. The permanent database storage is a SQL database, called JawsDB, provided by Heroku.
+\par From the client side there is a mirrored data structure of the data base, that is represented by model classes for Event, Subscription and User that will be filled after a specific request to the webserver and stored in these objects. All the data obtained as the result of a request is stored in the local SQLite database. We also use shared preferences system of Android to locally store other information such as the list of already voted events and the list of active subscription notifications. In this way, internet connection is not needed to show already cached events and subscriptions
 
 \section{Database design \& implementation}
+This kind of design has the aim to provide an abstract description of the data used by the application, independently from the database model. In our case only two simple classes represent the entire data structure needed on the client side and are Event and Subscription. Server-side we need also to know also information about registered user, in order to handle create or delete operations and to allow sending notifications.
+\par Below we put the atribute of each table object, their meaning, and their eventual relationship with other elements:
+\begin{itemize}
+\item \underline{\textbf{Event}}: This class represents the event object
+\begin{enumerate}
+\item \textbf{ID}: primary key, is a positive integer
+\item \textbf{Date}: is the timestamp of creation
+\item \textbf{Event Type}: is value from an enumeration that categorizes the events: burglar, ...
+\item \textbf{Description}: is a string describing the event
+\item \textbf{Country}: is a string about the country where the event took place
+\item \textbf{City}: is a string about the city where the event took place
+\item \textbf{Street}: is a string about the street where the event took place
+\item \textbf{Latitude}: is a double that represents the latitude where the event took place
+\item \textbf{Longitude}:  is a double that represents the latitude where the event took place
+\item \textbf{Votes}: is an integer representing the number of votes received by the event
+\item \textbf{Submitter ID}: is a string representing the creator user, foreign key to User.ID
 
+\end{enumerate}
+
+\item \underline{\textbf{Subscription}}:
+\begin{enumerate}
+\item \textbf{ID}: primary key, is a positive integer
+\item \textbf{User ID}:  is a string representing the creator user, foreign key to User.ID
+\item \textbf{Minimum Latitude}: is a double representing the bottom bound of the area of interest
+\item \textbf{Maximum Latitude}: is a double representing the top bound of the area of interest
+\item \textbf{Minimum Longitude}: is a double representing the left bound of the area of interest
+\item \textbf{Maximum Longitude}: is a double representing the right bound of the area of interest
+\item \textbf{Radius}: is an integer, approximates the radius of the area
+\item \textbf{Country}: is a string, used approximates the center of the area
+\item \textbf{City}:  is a string,used  approximates the center of the area
+\item \textbf{Street}:  is a string, used approximates the center of the area
+\end{enumerate}
+
+\item \underline{\textbf{User}}:
+\begin{enumerate}
+\item \textbf{ID}: primary key, is a string provided by Firebase and guaranteed to be unique across all the users registered to the application
+\item \textbf{Name}:  is a string representing the name of the user
+\item \textbf{Email}: is a string representing the email of the user
+\item \textbf{FCM}: is a string representing a Firebase Cloud Messaging token of the user's last used device
+\item \textbf{Superuser}: is a boolean that identifies if the user is a superuser or not, superusers bypass ownership check when deleting events or subscriptions
+\end{enumerate}
+\end{itemize}
+
+\par At the end the choice falls on a SQL database for these reasons:
+\begin{itemize}
+\item All the requested operations are easily perfomed by writing simple SQL statements
+\item Both of us are pretty solid in using SQL databases
+\end{itemize}
+
+\par Our remote database is simply organized in five tables:
+\begin{enumerate}
+\item Event table: contains all the events
+\item Votes table: contains all the votes registered as a pair event id and user id
+\item Subscription table: contains all the subscriptions
+\item User table: contains all the users
+\item Authorization table: contains all particular authorizations as a pair user id and user level, where 1 is super user
+\end{enumerate}
+
+\par Our local cache database is simpler since all is contained in two tables:
+\begin {enumerate}
+\item Event table: contains all the cached events, also with votes and timestamps
+\item Subscription table: contains all the cached subscriptions, also with timestamps
+\end{enumerate}
 % ______________________
 % chapter Architectures and Component Level Design
 % ______________________
 \chapter{Architectures and component level design}
 
 \section{System architecture}
+Neighborhood Security is divided in two main components: one is the Android client-side application and the other one is a server-side Java application. Now we will see them in detail in the subsections below
+
+\subsection{Client-side application}
+This part of the application is divided in two different parts: the functional componenets represented by Java code and the graphical componenets written in XML. The java code provides all the functinoality and methods to handle the graphics and the user's interactions with the application. Some of the tasks it completes are for example: retrieve and store data, visualize data, display notifications, trigger events when the user interacts with the UI, etc.
+\par The graphical component, all the layout file written in XML, are simply the interface that is visualized to the users. It is composed by various elements such as the navigation drawer, button, text boxes, images and other views of any kind, that are used to display all the informations and allow the user to interact easily with the application.
+
+\subsection{Server-side application}
+The server component of Neighborhood Security is represented by a Java EE application, that provides a REST webservice built using Jersey. The application is hosted by Heroku, which also hosts our SQL database based on JawsDB. The application interacts with the database using a JDBC (Java DataBase Connectivity) driver. The server application has two main objectives: expose the access to the database to the client application and to send notifications to interested users, using Firebase Cloud Messaging. Because of this, the communication can be considered as bidirectional.
+\par The architectural style is the usual of the enterprise application, based on different layers, distributed in different physical devices.
+
+\subsection{Client-server interaction}
+Now we will focus on the details regarding the internal structure of mobile application, such as the Andoird devices that will run our project, in order to better understand the intraction between the device and the server.
+\par The paradigm we chose is the Model-View-Controller pattern for the entire system, because is the most suited for Android development and works well with the functionalities that we implemented in our application. In the android client, the interfaces displayed to the user are the views, the controller logic is the part of application that allows interaction with the data both stored locally and remotely, which represents our model. The server-side application has an important part of controller logic, in particular regarding the storage and notifications handling, but also the entire model of our data.
+\par Below we can see a visualization of the paradigm:
+
+////////// immagine qui /////////////
+
+\par As we said before the controller is splitted between client and server. For example the logic to display events is only present on the client side part as well as other classes that have the task to retrieve the data requested by the user. On the other hand, in the server part we provide the entire logic that handles the sending of notifications to the interested users based on their subscriptions and the created events
+\par After these considerations, we can assume that our client is a not a fat nor a thin one, because both the server-side and the client-side of the application have a considerable amount of application logic inside.
+\par Finally, as said before, the model is initially present in the server-side part, because the database stores the entire data about events, subscriptions and users; however it is partially replicated in the client-side part, since we need to cache data to allow the application to work even if no internet connection is available.
 
 \section{Architectural design}
+In this section we will focus on briefly describe how the two part, the server-side and the client-side part, are composed.
+\par The server side is composed by two main layers:
+\begin{itemize}
+\item Data Layer: contains the DBMS module and allow the data to be stored and be persistent
+\item Business Layer: encapsulates the business logic and manages the communication with the stable memory of the database, retrieving the correct informations when needed
+\end{itemize}
+
+\par On the client side part, we have three divisions:
+\begin{itemize}
+\item Data Layer: this layer comprehend those classes that are used to support the caching of the data on the local storage, it interacts with the business layer
+\item Business Layer: this layer comprehend different kind of classes, from the classes needed to query local database and the remote web services, to the one that manage the application logic and support the view 
+\item View Layer: it's the layer that provides interaction with the user. Since our is a mobile application, this layer is represented as the touch screen of the device used to visualize the application. This layer communicates with the logic level underneath that are used to communicate between the user interface and the application logic.
+\end{itemize}
+
 
 \section{Java package organization}
+TODO
 
 \section{Security}
+Very little security countermeasure must be taken in consideration in our application.
+\par The unique way in which the DB could be compromised could be only a direct attack to our provider Heroku, but we assume that strict protection policies are taken against these type of attacks.
+\par User authentication is handled by Google's Firebase platform, which we assume to be trustworthy and employing policies to protect their user data
+\par Moreover, our application does not contain sensible user data, so even if a potential attacker succeed in breaking the system, the damage will be minimum. SQL injections, that could be possible by exploiting query fields, are prevented by using prepared statements.
+
 
 
 % ______________________
@@ -221,37 +425,51 @@ Here we list the core functionalities that can be found in our application. We d
 % chapter External Services
 % ______________________
 \chapter{External services}
+We have used several external services for our application, some of them are necessary for the proper behaviour of the system, such as Retrofit to communicate with the server-side part of the application, and other only to enrich the overall experience of the user. They are completely transparent to the user and fully integrated within the application.
+\par The main advantage in using these kind of services is first of all the commodity to not have to implement specific portion of codes to achieve the same result that these external services already provide.
+\par Now we present the main external services that we have used and integrated in our application.
 
-\section{Google Firebase}
+\section[Retrofit]{Retrofit\footnote{Retrofit, \url{http://square.github.io/retrofit/}}}
+Is the fundamental service that allows our application to communicate with the REST interface of our server application, and thus with the remote database. The service provides an easy way to translate a simple Java method call into a request to the webservice, handling all the marshalling/unmarshalling and serialization job. The services uses annotated Java classes to transform JSON objects into Java objects.
+
+\section[Google Firebase]{Google Firebase\footnote{Google Firebase, \url{https://firebase.google.com/}}}
 
 \subsection{Authentication}
-usato per consentire l'autenticazione tramite facebook, google e email
+This service is of foundamental importance since it handles all the authentication procedures for the users. In the client-side part of the application, it is used to allow user to register or login using their preferred method among Google, Facebook or classic email and password. In the server-side of the application, it is used to verify that the user token received in the header of a request are of a valid user. It has been easily integrated in both part of the application.
 
 \subsection{Cloud Messaging}
-usato per consentire l'invio delle notifiche ai disposiivi da parte del web service
+This service handles the sending of messages from the server to the client. These messages are triggered by the creation or deletion of events on the server-side. The messages are of two different types: event creation and event deletion, that are sent to users that have an active subscription that matches the location of the events. In this way we can optimize the bandwidth consumption of our client-side application, indeed it is not required that it periodically checks if new events are available on the DB but it is informed by the server itself, result in a huge saving of bandwith but also of workload on the server, since we reduce the number of requests. Although an official library exists for Android, the same is not true for Java, so we needed to use a third-party open source library to allow communication between our Java EE application and FCM api.
 
 \subsection{Job Dispatcher}
-usato per schedulare ogni mezzanotte la rimozione di eventi e sottoscrizioni che non sono state refreshate da più di 7 giorni, per rimouvere eventi/sottoscrizioni eventualmente rimosse
+This secondary service is used in order to keep data stored in the local database consistent with the data available remotely, in particular we are interested in removing old events/subscriptions from the caching database. A simple way is to run a scheduled job every midnight in order to remove events and subscriptions that have not been refreshed since 7 days- In this way we prevent the user from seeing events available locally that have been deleted remotely
 
-\section{Google Play Services}
-
+\section[Google Play Services]{Google Play Services\footnote{Google Play Services, \url{https://developers.google.com/android/}}}
 \subsection{Authentication}
-usato per l'autenticazione tramite firebase
+The service is used to obtain the Google user profile and email, that is then used by Firebase Authentication to handle new user creation or authentication.
 
 \subsection{Location Places}
-usato place autocomplete per semplificare la segnalazione di event, creazione di nuove sottoscrizioni, ricerca eventi, posizionamento mappa
+The service is used to allow user to search for locations in an easy way, since they can exploit an autocomplete feature for easier and faster location search.
 
 \subsection{Maps}
-usato per mostrare mappa degli eventi e come header nel dettaglio evento
+It is a really important service, since in this way we can present the user the various event placed on a interactive map. Being able to see events placed in the map it's a really important feature of the application, since it is a quick way for the users to understand if a particular area is having particular intense criminal activity or if other users are active in the zone. A map is also displayed in the view that shows the detail of an event and also in the extended notification for Android Wear devices.
 
-\section{Facebook}
-usato per l'autenticazione tramite firebase
+\subsection{Fused Location Provider}
+This secondary service is used to obtain the device's last known position, it is useful to provide a fast way to let the user localize himself in the map, but also when creating an event or subscription at the user's position. This service requires the user to allow the application to have access to coarse or fine position. The application can continue to work even thought the user doesn't give these permissions.
 
-\section{Neighborhood Security Webservice}
-rest api per gli  eventi
+\section[Facebook]{Facebook\footnote{Facebook, \url{https://developers.facebook.com/}}}
+The service is used to obtain the Facebook user profile and email, that is then used by Firebase Authentication to handle new user creation or authentication.
 
 \section{Other minor services}
-glide, altre librerie
+\par Other libraries and services of seconday importance have been used in the application, mostly to make the development easy and quick, without the need to reimplement some basic functions.
+\begin{itemize}
+\item Glide\footnote{Glide, \url{https://github.com/bumptech/glide}}: an image loading and caching library, used to download the user profile picture and the static Google Map that is displayed on wearable devices during the notification of an event.
+\item Xdroid Enum Format\footnote{Xdroid, \url{https://github.com/shamanland/xdroid}}: a library that allows to easily localize enums by means of annotations and xml files
+\item UsefulViews\footnote{UsefulViews,\url{ https://github.com/FarbodSalamat-Zadeh/UsefulViews}}: a collection of views that follow current Google design guidelines for material design
+\item Floating Action Button\footnote{Floating Action Button,\url{ https://github.com/Scalified/fab}}: a reimplementation of Google's floating action button that is enhanced with easier and richer customizations
+\item Material Drawer\footnote{Material Drawer, \url{https://github.com/mikepenz/MaterialDrawer}}: it's a flexible, easy to use and all in one drawer implementation that provides the easiest possible implementation of a navigation drawer
+\item Arc Layout\footnote{Arc Layout, \url{https://github.com/ogaclejapan/ArcLayout}}: a simple and customizable arc layout, we used id to display icons in the home page in a fancy way, without the need to use absolute positions
+\item Fancy ShowCase View\footnote{Fancy ShowCase View, \url{https://github.com/faruktoptas/FancyShowCaseView}}: a library that easily allowed us to build a welcome and introduction screen for the new users
+\end{itemize}
 
 % ______________________
 % chapter UML diagrams
