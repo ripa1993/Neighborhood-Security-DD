@@ -15,6 +15,10 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
+\usepackage{tabularx}
+\newcolumntype{b}{X}
+\newcolumntype{a}{>{\hsize=.33\hsize}X}
+
 \title{ Neighborhood Security}
 \subtitle{Software Design Document}
 \author{Simone Ripamonti, Luca Stornaiuolo}
@@ -568,29 +572,178 @@ The service is used to obtain the Facebook user profile and email, that is then 
 % ______________________
 
 \chapter{Test cases}
-This section describes the results of the main tests done on the Appetite app.
+This section describes the results of the main tests done on Neighborhod Security application.\\\\
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Display event list} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Display subscription list} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Display event map} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Create subscription} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Create event} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Disable notification for a sub.} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Enable notification for a sub.} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Delete event} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Delete subscription} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Vote event} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Undo Vote event} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Login using Facebook} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Login using Google} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Login using email} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Register using email} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{send rest password email} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Update events when moving map} \\ \hline
+	Goal 				& 1 \\ \hline
+	Input 				& 2 \\ \hline
+	Expected outcome 	& 3 \\ \hline
+	Actual outcome 		& 4 \\ \hline
+\end{tabularx}
 
-\begin{itemize}
-	\item Display event detail
-	\item Display event list
-	\item Display subscription list
-	\item Display event map
-	\item Create subscription
-	\item Create event
-	\item Disable notification for a sub.
-	\item Enable notification for a sub.
-	\item Delete event
-	\item Delete subscription
-	\item Vote event
-	\item Undo vote event
-	\item Login using Facebook
-	\item Login using Google
-	\item Register using email
-	\item Login using email
-	\item Reset email password
-	\item Update events when moving map
-	
-\end{itemize}
 
 % ______________________
 % chapter Cost Estimation
