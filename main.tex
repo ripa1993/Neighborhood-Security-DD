@@ -11,6 +11,7 @@
 %% Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
@@ -401,25 +402,104 @@ Very little security countermeasure must be taken in consideration in our applic
 % chapter User Interfaces
 % ______________________
 \chapter{User interfaces}
+In this section we will provide a certain number of screenshots of the application. We focused our attention in designing the application for mobile phones, even if some portions of code are already prepared to be displayed in larger screens. Layouts, dimensions and colours were chosen following the Android Material Design guidelines.\footnote{Material Design Guidelines, \url{https://material.io/guidelines/}}
 
 \section{Splash screen}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{home}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	The splash screen welcomes the user when the application is starting, meanwhile it checks if a valid version of Google Play Services is installed on the device. If it is necessary, user is prompted to install a newer version of Google Play Services
+\end{minipage}
 
-\section{Home and drawer}
+\section{Home}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{home}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	This screen is the first the user sees as soon as the splash activity is ended. If this is the first time the user launches the application, he will see a brief showcase that introduces the main functionalities of the application. It is mainly composed by two buttons: map and subscription list. These are the two main features of the application, so they are easily accessible. The icons in the top of the screen display auxiliary informations about the applications: statisics about events and subscription, and a help page.
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{home_drawer}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	Through a swipe from left to right, or by pressing the hamburger button, the user can access a lateral menu. In the menu the user gets access to other functions that are available in the applications, these functions are the authentication and others that concern event and subscription creation or listing. This interface is really effective, since it keeps all the functionalities at a tap of distance, so the users will not lose time in searching how to reach functionalities.
+\end{minipage}
 
 \section{Authentication}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{authentication}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	The interface is simple and it just shows the three authentication methods, that are Email, Google and Facebook.
+	By clicking on "Google" or "Facebook" (?) buttons, the user will be prompted to choose which of his accounts he would like to use inside the application. This is the fastest way to create an account in Neighborhood Security, since no other fields are required to be filled.
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{authentication_email}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	By clicking on "Email Authentication", a new page will open that will let the user perform operations like registering a new account, loggin in and resetting the password. 
+\end{minipage}
 
 \section{Map}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{event_map_1}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	 The user can move and zoom in or out with the gesture he is used to (scroll and pinch-in / pinch-out). There are two class of markers that are displayed on the map: event marker and cluster marker. An event marker is characterized by an icon that suggests the kind of event that took place in the given position. By clicking on the event, the user will move the the event's detail page. The cluster marker instead, is characterized by the number of event that have been reported in that location. By clicking on the cluster, the user will se the list of events that happenend in that location. Users can also search for a  location by using the search form provided by Google Place Autocomplete, that also suggests places meanwhile the user is writing. By long clicking on a point of the map, a dialog is displayed showing addictional functions to the user, allowing him to create an event or subscription at that specified point or to obtain th list of events that happened near there. Also, a floating action button is displayed, it is a simple shortcut to the event create page.
+\end{minipage}
+
 
 \section{Subscription list}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{subscription_list}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	This page displays the list of active subscriptions, if any, otherwise a courtesy image is displayed, inviting the user to create new subscriptions. Each subscription displayed is characterized by it's notification status, which can be selected using the toggle on the right, and is easily understandable by bell icon on the left. The main informations about the subscriptions are the location and its radius, both of them are easily readable on the screen. By clicking on a subscription, the user obtains the list of events that match that subscription. By long clicking on it, instead, the user will be asked if he wants to remove the subscription. The user can force a refresh of his subscriptions by simply doing a swipe top to bottom.
+\end{minipage}
 
 \section{Subscription creation}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{subscription_create}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	Its simple allows the user to create a subscription in few taps. A seekbar is provided in order to decide the radius of the subscription, from a minimum of 0 metres to a maximum of 2000 metres. The user can decide the main location of the subscription in two ways, by searching for its name, for example by inserting the city and street name, or by using absolute coordinates. A button is provided to easily get the user current position, once he gave the application the permission to use location sensors. Creation is actually performed when the user clicks the menu button in the action bar.
+\end{minipage}
 
 \section{Event list}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{event_list}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	This page shows the list of events that can match different criteria: have been submitted from a user, are matching a given subscription or belong to a particular area. Each displayed event is characterized by the kind of event, both using an icon and by text, the date it took place, the location and the number of votes it has received. All these infomration are easily understandable at a first glance. By clicking on a event, the user will see the full details of the event. By long clicking on a event instead, the user is asked if he wants to delete the even, this is only available if the event has been created by the current logged in user. The user can force a refresh of the events by simply performing a swipe from top to bottom. 
+\end{minipage}
 
 \section{Event creation}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{event_create_2}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	This interface is very similar to the subscription create one. Both share the fact that the location can be select both by address and by coordinates. The main difference is the presence of a text field, used to add a brief description of the event, and a spinner, that allows the user to select the kind of event. Creation is actually performed when the user clicks the menu button in the action bar.
+\end{minipage}
 
 \section{Event detail}
-
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.7\textwidth]{event_detail}\\
+	\bigskip
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	In this page the user obtains the full details of an event, that are displayed on a list. These details include date, type of event, description, location and number of events. The position of the event is also displayed in the map in the top portion of the screen, this is useful to easily localize the location where it took place. The button with a star is the way the user can vote an event. By clicking on it, the vote will be added and a snack bar is displayed to undo the operation, in case the user misclicked. The star will become full once the event has been voted.
+\end{minipage}
 
 % ______________________
 % chapter External Services
