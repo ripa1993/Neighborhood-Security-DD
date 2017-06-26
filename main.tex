@@ -369,7 +369,11 @@ Now we will focus on the details regarding the internal structure of mobile appl
 \par The paradigm we chose is the Model-View-Controller pattern for the entire system, because is the most suited for Android development and works well with the functionalities that we implemented in our application. In the android client, the interfaces displayed to the user are the views, the controller logic is the part of application that allows interaction with the data both stored locally and remotely, which represents our model. The server-side application has an important part of controller logic, in particular regarding the storage and notifications handling, but also the entire model of our data.
 \par Below we can see a visualization of the paradigm:
 
-////////// immagine qui /////////////
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{mvc}
+	\caption{The MVC paradigm}
+\end{figure}
 
 \par As we said before the controller is splitted between client and server. For example the logic to display events is only present on the client side part as well as other classes that have the task to retrieve the data requested by the user. On the other hand, in the server part we provide the entire logic that handles the sending of notifications to the interested users based on their subscriptions and the created events
 \par After these considerations, we can assume that our client is a not a fat nor a thin one, because both the server-side and the client-side of the application have a considerable amount of application logic inside.
@@ -389,6 +393,12 @@ In this section we will focus on briefly describe how the two part, the server-s
 \item Business Layer: this layer comprehend different kind of classes, from the classes needed to query local database and the remote web services, to the one that manage the application logic and support the view 
 \item View Layer: it's the layer that provides interaction with the user. Since our is a mobile application, this layer is represented as the touch screen of the device used to visualize the application. This layer communicates with the logic level underneath that are used to communicate between the user interface and the application logic.
 \end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{structure}
+	\caption{Application architecture}
+\end{figure}
 
 
 \section{Java package organization}
@@ -875,7 +885,7 @@ Now in order to estimate \emph{EAF} we will use the standard provided tables, gi
 \end{tabularx}
 \bigskip
 For our project we can calculate the number of person/month required:
-\[ EFFORT = (0.94*0.85*0.87*1.00*1.00*0.95*0.91*0.91*1.00)*3.2*(6)^{1.05} = 11.5 \]
+\[ EFFORT = (0.94*0.85*0.87*1.00*1.00*0.95*0.91*0.91*1.00)*3.2*(6)^{1.05} \approx 11.5 \]
 The number obtained is the number of people necessary to make the project in a month. In our case, we need 11.5 person month estimated. A manager will then schedule the number of people and time required accordingly.
 
 However, we are a team of two people developing the application, so we can do the inverse procedure and determine th estimated time span required for our team.
@@ -883,7 +893,7 @@ However, we are a team of two people developing the application, so we can do th
 We consider this equation of people needed based on duration and effort:
 \[PEOPLE = EFFORT / DURATION\]
 So we can calculate the inverse and obtain:
-\[DURATION = EFFORT / PEOPLE = \frac{11.5person\cdot month}{2 person} = 5.75 month\]
+\[DURATION = EFFORT / PEOPLE = \frac{11.5\ person\cdot month}{2\ person} = 5.75\ month\]
 
 The time of development is estimated in more or less 6 months of development.
 
