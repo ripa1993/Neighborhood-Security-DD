@@ -16,8 +16,8 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \usepackage{tabularx}
-\newcolumntype{b}{X}
-\newcolumntype{a}{>{\hsize=.33\hsize}X}
+
+\usepackage{float}
 
 \title{ Neighborhood Security}
 \subtitle{Software Design Document}
@@ -392,7 +392,68 @@ In this section we will focus on briefly describe how the two part, the server-s
 
 
 \section{Java package organization}
-TODO
+\subsection{Application organization}
+\begin{figure}[H]
+	\centering
+	\includegraphics{packages}
+	\caption{Application packages}
+\end{figure}
+
+In this picture it is possible to see the overall organization of the application packages. The division was chosen in order to separate the application components. Now we will explain what each package contains.
+
+\subsection{Model}
+\begin{figure}[H]
+	\centering
+	\includegraphics{pack_model}
+	\caption{The \emph{model} package}
+\end{figure}
+In this package we grouped the classes that represent the information that can be obtained from the web service and stored in the local database.
+
+\subsection{Activity}
+\begin{figure}[H]
+	\centering
+	\includegraphics{pack_activity}
+	\caption{The \emph{activity} package}
+\end{figure}
+This package contains all the Android \emph{Activity} that have been implemented in the application, in most of the cases our activities are in charge of displaying the corresponding fragment and provide addictional interactions to the user, such as floating buttons or action bars.
+
+\subsection{Fragment}
+\begin{figure}[H]
+	\centering
+	\includegraphics{pack_fragment}
+	\caption{The \emph{fragment} package}
+\end{figure}
+This package contains all the Android \emph{Fragment} that have been implemented in the application. We decided to use fragments in order to be ready to reuse them when we will develop ad hoc interfaces for tablets or other devices.
+
+\subsection{Adapter}
+\begin{figure}[H]
+	\centering
+	\includegraphics{pack_adapter}
+	\caption{The \emph{adapter} package}
+\end{figure}
+This package contains the required implementations of the \emph{Recycler View Adapter} that is needed to display custom objects in a Recycler View. We decided to extend the default behaviour of Android's Recycler View by using \emph{RecyclerViewWithEmptyView} in order to show a default view when there are no items in the adapter.
+
+\subsection{Controller}
+\begin{figure}[H]
+	\centering
+	\includegraphics{pack_controller}
+	\caption{The \emph{controller} package}
+\end{figure}
+This package contains all the classes that are needed to interact with the local storage, in the \emph{db} sub-package, and with the REST web service, in the \emph{rest} sub-package. Fragments and activities should not interact directly with those packages, but only with \emph{NSService} that contains a set of auxiliary methods to perform specific operations that concern data or authentication. \emph{Constants} contains a set of useful predefined values that are used across the application.
+
+\subsection{Services}
+\begin{figure}[H]
+	\centering
+	\includegraphics{pack_services}
+	\caption{The \emph{services} package}
+\end{figure}
+This package contains all the useful Android \emph{Service} that will run in the background even when the application is not open. In order for our application to work, we needed:
+\begin{itemize}
+	\item \emph{DatabaseCleanService} to perform database clean
+	\item \emph{FCMReceiverService} to display notifications
+	\item \emph{FCMTokenRefreshService} to update the device token in the web service
+\end{itemize}
+
 
 \section{Security}
 Very little security countermeasure must be taken in consideration in our application.
@@ -409,9 +470,11 @@ Very little security countermeasure must be taken in consideration in our applic
 In this section we will provide a certain number of screenshots of the application. We focused our attention in designing the application for mobile phones, even if some portions of code are already prepared to be displayed in larger screens. Layouts, dimensions and colours were chosen following the Android Material Design guidelines.\footnote{Material Design Guidelines, \url{https://material.io/guidelines/}}
 
 \section{Splash screen}
+
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{home}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{home}
+	\captionof{figure}{The splash screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	The splash screen welcomes the user when the application is starting, meanwhile it checks if a valid version of Google Play Services is installed on the device. If it is necessary, user is prompted to install a newer version of Google Play Services
@@ -419,15 +482,17 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \section{Home}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{home}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{home}
+	\captionof{figure}{The home screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	This screen is the first the user sees as soon as the splash activity is ended. If this is the first time the user launches the application, he will see a brief showcase that introduces the main functionalities of the application. It is mainly composed by two buttons: map and subscription list. These are the two main features of the application, so they are easily accessible. The icons in the top of the screen display auxiliary informations about the applications: statisics about events and subscription, and a help page.
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{home_drawer}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{home_drawer}
+	\captionof{figure}{The opened drawer}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	Through a swipe from left to right, or by pressing the hamburger button, the user can access a lateral menu. In the menu the user gets access to other functions that are available in the applications, these functions are the authentication and others that concern event and subscription creation or listing. This interface is really effective, since it keeps all the functionalities at a tap of distance, so the users will not lose time in searching how to reach functionalities.
@@ -435,16 +500,18 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \section{Authentication}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{authentication}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{authentication}
+	\captionof{figure}{The authentication screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	The interface is simple and it just shows the three authentication methods, that are Email, Google and Facebook.
 	By clicking on "Google" or "Facebook" (?) buttons, the user will be prompted to choose which of his accounts he would like to use inside the application. This is the fastest way to create an account in Neighborhood Security, since no other fields are required to be filled.
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{authentication_email}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{authentication_email}
+	\captionof{figure}{The email authentication screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	By clicking on "Email Authentication", a new page will open that will let the user perform operations like registering a new account, loggin in and resetting the password. 
@@ -452,8 +519,9 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \section{Map}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{event_map_1}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{event_map_1}
+		\captionof{figure}{The event map screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	 The user can move and zoom in or out with the gesture he is used to (scroll and pinch-in / pinch-out). There are two class of markers that are displayed on the map: event marker and cluster marker. An event marker is characterized by an icon that suggests the kind of event that took place in the given position. By clicking on the event, the user will move the the event's detail page. The cluster marker instead, is characterized by the number of event that have been reported in that location. By clicking on the cluster, the user will se the list of events that happenend in that location. Users can also search for a  location by using the search form provided by Google Place Autocomplete, that also suggests places meanwhile the user is writing. By long clicking on a point of the map, a dialog is displayed showing addictional functions to the user, allowing him to create an event or subscription at that specified point or to obtain th list of events that happened near there. Also, a floating action button is displayed, it is a simple shortcut to the event create page.
@@ -462,8 +530,9 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \section{Subscription list}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{subscription_list}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{subscription_list}
+	\captionof{figure}{The subscription list screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	This page displays the list of active subscriptions, if any, otherwise a courtesy image is displayed, inviting the user to create new subscriptions. Each subscription displayed is characterized by it's notification status, which can be selected using the toggle on the right, and is easily understandable by bell icon on the left. The main informations about the subscriptions are the location and its radius, both of them are easily readable on the screen. By clicking on a subscription, the user obtains the list of events that match that subscription. By long clicking on it, instead, the user will be asked if he wants to remove the subscription. The user can force a refresh of his subscriptions by simply doing a swipe top to bottom.
@@ -471,8 +540,9 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \section{Subscription creation}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{subscription_create}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{subscription_create}
+		\captionof{figure}{The subscription creation screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	Its simple allows the user to create a subscription in few taps. A seekbar is provided in order to decide the radius of the subscription, from a minimum of 0 metres to a maximum of 2000 metres. The user can decide the main location of the subscription in two ways, by searching for its name, for example by inserting the city and street name, or by using absolute coordinates. A button is provided to easily get the user current position, once he gave the application the permission to use location sensors. Creation is actually performed when the user clicks the menu button in the action bar.
@@ -480,8 +550,9 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \section{Event list}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{event_list}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{event_list}
+		\captionof{figure}{The event list screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	This page shows the list of events that can match different criteria: have been submitted from a user, are matching a given subscription or belong to a particular area. Each displayed event is characterized by the kind of event, both using an icon and by text, the date it took place, the location and the number of votes it has received. All these infomration are easily understandable at a first glance. By clicking on a event, the user will see the full details of the event. By long clicking on a event instead, the user is asked if he wants to delete the even, this is only available if the event has been created by the current logged in user. The user can force a refresh of the events by simply performing a swipe from top to bottom. 
@@ -489,8 +560,9 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \section{Event creation}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{event_create_2}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{event_create_2}
+		\captionof{figure}{The event creation screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	This interface is very similar to the subscription create one. Both share the fact that the location can be select both by address and by coordinates. The main difference is the presence of a text field, used to add a brief description of the event, and a spinner, that allows the user to select the kind of event. Creation is actually performed when the user clicks the menu button in the action bar.
@@ -498,8 +570,9 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \section{Event detail}
 \begin{minipage}{0.5\textwidth}
-	\includegraphics[width=0.7\textwidth]{event_detail}\\
-	\bigskip
+	\centering
+	\includegraphics[width=0.7\textwidth]{event_detail}
+		\captionof{figure}{The event detail screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	In this page the user obtains the full details of an event, that are displayed on a list. These details include date, type of event, description, location and number of events. The position of the event is also displayed in the map in the top portion of the screen, this is useful to easily localize the location where it took place. The button with a star is the way the user can vote an event. By clicking on it, the vote will be added and a snack bar is displayed to undo the operation, in case the user misclicked. The star will become full once the event has been voted.
@@ -810,7 +883,7 @@ However, we are a team of two people developing the application, so we can do th
 We consider this equation of people needed based on duration and effort:
 \[PEOPLE = EFFORT / DURATION\]
 So we can calculate the inverse and obtain:
-\[DURATION = EFFORT / PEOPLE = \frac{11.5 person\cdot month}{2 person} = 5.75 month\]
+\[DURATION = EFFORT / PEOPLE = \frac{11.5person\cdot month}{2 person} = 5.75 month\]
 
 The time of development is estimated in more or less 6 months of development.
 
