@@ -750,8 +750,69 @@ This section describes the results of the main tests done on Neighborhod Securit
 % ______________________
 
 \chapter{Cost estimation}
+Here we include a cost estimation for our project using the intermediate COCOMO model. This analysis has the goal to determine the number of month needed for the develop of a project of this type.
 
+The first step of the COCOMO (Constructive Cost Model) approach is to choose which type of software is being produced. This will classify the model parameters \emph{"a"} and \emph{"b"}.
 
+COCOMO applies to three classes of projects:
+\begin{itemize}
+	\item ORGANIC projects have "small" teams with "good" experience working with "less than rigid" requirements
+	\item SEMI-DETACHED projects have "medium" teams with mixed experience working with a mix of rigid and less than rigid requirements
+	\item EMBEDDED projects are developed within a set of "tight" constraints. It is also combination of organic and semi-detached projects
+\end{itemize}
+
+The basic equation for our model is:
+\[ EFFORT = EAF * a * (KLOC)^b  \]
+where
+\begin{itemize}
+	\item \emph{EFFORT} is in terms of man-months
+	\item \emph{EAF} is the effort adjustment factor
+	\item \emph{KLOC} is the estimated number of thousand lines of code for the project
+\end{itemize}
+
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|X|l|l|}
+	\hline
+	\textbf{Intermediate Cocomo}	&\textbf{a}	&\textbf{b} \\ \hline
+	Organic & 3.2 & 1.05 \\ \hline
+	Semi-detached & 3.0 & 1.12 \\ \hline
+	Embedded & 2.8 & 1.20 \\ \hline
+\end{tabularx}
+\bigskip
+
+We decided to consider our project an ORGANIC one. Our team is a small one, just two people, and although this is our first time developing an Android application, we have a solid experience with Java. For this reason our coefficients are $ a = 3.2 $ and $ b = 1.05 $.
+
+Now in order to estimate \emph{EAF} we will use the standard provided tables, giving it a reasonable value. The value is calculated considering a set of four cost drivers: product attributes, hardware attributes, personnel attributes and project attributes.
+
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|X|l|l|}
+	\hline
+	\textbf{Attributes} & \textbf{Rating} & \textbf{Value} \\ \hline
+	Size of application database & Low & 0.94 \\ \hline
+	Complexity of the product & Low & 0.85 \\ \hline
+	Volatility of the virtual machine environment & Low & 0.87 \\ \hline
+	Applications experience & Nominal & 1.00 \\ \hline
+	Software engineer capability & Nominal & 1.00 \\ \hline
+	Programming language experience & High & 0.95 \\ \hline
+	Application of software engineering methods & High & 0.91 \\ \hline
+	Use of software tools & High & 0.91 \\ \hline
+	All others & Nominal & 1.00 \\ \hline
+\end{tabularx}
+\bigskip
+For our project we can calculate the number of person/month required:
+\[ EFFORT = (0.94*0.85*0.87*1.00*1.00*0.95*0.91*0.91*1.00)*3.2*(6)^{1.05} = 11.5 \]
+The number obtained is the number of people necessary to make the project in a month. In our case, we need 11.5 person month estimated. A manager will then schedule the number of people and time required accordingly.
+
+However, we are a team of two people developing the application, so we can do the inverse procedure and determine th estimated time span required for our team.
+
+We consider this equation of people needed based on duration and effort:
+\[PEOPLE = EFFORT / DURATION\]
+So we can calculate the inverse and obtain:
+\[DURATION = EFFORT / PEOPLE = \frac{11.5 person\cdot month}{2 person} = 5.75 month\]
+
+The time of development is estimated in more or less 6 months of development.
 
 %\bibliographystyle{alpha}
 %\bibliography{sample}
