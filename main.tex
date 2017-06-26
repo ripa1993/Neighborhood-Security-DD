@@ -19,6 +19,14 @@
 
 \usepackage{float}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{%
+	\markboth{\thechapter.\ #1}{}}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+
+
 \title{ Neighborhood Security}
 \subtitle{Software Design Document}
 \author{Simone Ripamonti, Luca Stornaiuolo}
