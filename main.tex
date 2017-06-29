@@ -30,7 +30,7 @@
 \title{ Neighborhood Security}
 \subtitle{Software Design Document}
 \author{Simone Ripamonti, Luca Stornaiuolo}
-\titlehead{\centering\includegraphics[width=6cm]{polimi-logo}}
+\titlehead{\centering\includegraphics[width=6cm]{imgs/polimi-logo}}
 
 
 \begin{document}
@@ -379,7 +379,7 @@ Now we will focus on the details regarding the internal structure of mobile appl
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{mvc}
+	\includegraphics[width=0.5\textwidth]{imgs/mvc}
 	\caption{The MVC paradigm}
 \end{figure}
 
@@ -404,7 +404,7 @@ In this section we will focus on briefly describe how the two part, the server-s
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\textwidth]{structure}
+	\includegraphics[width=0.95\textwidth]{imgs/structure}
 	\caption{Application architecture}
 \end{figure}
 
@@ -413,7 +413,7 @@ In this section we will focus on briefly describe how the two part, the server-s
 \subsection{Application organization}
 \begin{figure}[H]
 	\centering
-	\includegraphics{packages}
+	\includegraphics{imgs/packages}
 	\caption{Application packages}
 \end{figure}
 
@@ -422,7 +422,7 @@ In this picture it is possible to see the overall organization of the applicatio
 \subsection{Model}
 \begin{figure}[H]
 	\centering
-	\includegraphics{pack_model}
+	\includegraphics{imgs/pack_model}
 	\caption{The \emph{model} package}
 \end{figure}
 In this package we grouped the classes that represent the information that can be obtained from the web service and stored in the local database.
@@ -430,7 +430,7 @@ In this package we grouped the classes that represent the information that can b
 \subsection{Activity}
 \begin{figure}[H]
 	\centering
-	\includegraphics{pack_activity}
+	\includegraphics{imgs/pack_activity}
 	\caption{The \emph{activity} package}
 \end{figure}
 This package contains all the Android \emph{Activity} that have been implemented in the application, in most of the cases our activities are in charge of displaying the corresponding fragment and provide addictional interactions to the user, such as floating buttons or action bars.
@@ -438,7 +438,7 @@ This package contains all the Android \emph{Activity} that have been implemented
 \subsection{Fragment}
 \begin{figure}[H]
 	\centering
-	\includegraphics{pack_fragment}
+	\includegraphics{imgs/pack_fragment}
 	\caption{The \emph{fragment} package}
 \end{figure}
 This package contains all the Android \emph{Fragment} that have been implemented in the application. We decided to use fragments in order to be ready to reuse them when we will develop ad hoc interfaces for tablets or other devices.
@@ -446,7 +446,7 @@ This package contains all the Android \emph{Fragment} that have been implemented
 \subsection{Adapter}
 \begin{figure}[H]
 	\centering
-	\includegraphics{pack_adapter}
+	\includegraphics{imgs/pack_adapter}
 	\caption{The \emph{adapter} package}
 \end{figure}
 This package contains the required implementations of the \emph{Recycler View Adapter} that is needed to display custom objects in a Recycler View. We decided to extend the default behaviour of Android's Recycler View by using \emph{RecyclerViewWithEmptyView} in order to show a default view when there are no items in the adapter.
@@ -454,7 +454,7 @@ This package contains the required implementations of the \emph{Recycler View Ad
 \subsection{Controller}
 \begin{figure}[H]
 	\centering
-	\includegraphics{pack_controller}
+	\includegraphics{imgs/pack_controller}
 	\caption{The \emph{controller} package}
 \end{figure}
 This package contains all the classes that are needed to interact with the local storage, in the \emph{db} sub-package, and with the REST web service, in the \emph{rest} sub-package. Fragments and activities should not interact directly with those packages, but only with \emph{NSService} that contains a set of auxiliary methods to perform specific operations that concern data or authentication. \emph{Constants} contains a set of useful predefined values that are used across the application.
@@ -462,7 +462,7 @@ This package contains all the classes that are needed to interact with the local
 \subsection{Services}
 \begin{figure}[H]
 	\centering
-	\includegraphics{pack_services}
+	\includegraphics{imgs/pack_services}
 	\caption{The \emph{services} package}
 \end{figure}
 This package contains all the useful Android \emph{Service} that will run in the background even when the application is not open. In order for our application to work, we needed:
@@ -491,7 +491,7 @@ In this section we will provide a certain number of screenshots of the applicati
 
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{splash}
+	\includegraphics[width=0.7\textwidth]{imgs/splash}
 	\captionof{figure}{The splash screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -501,7 +501,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Home}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{home}
+	\includegraphics[width=0.7\textwidth]{imgs/home}
 	\captionof{figure}{The home screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -509,7 +509,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{home_drawer}
+	\includegraphics[width=0.7\textwidth]{imgs/home_drawer}
 	\captionof{figure}{The opened drawer}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -519,7 +519,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Authentication}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{authentication}
+	\includegraphics[width=0.7\textwidth]{imgs/authentication}
 	\captionof{figure}{The authentication screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -528,7 +528,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{authentication_email}
+	\includegraphics[width=0.7\textwidth]{imgs/authentication_email}
 	\captionof{figure}{The email authentication screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -538,7 +538,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Map}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{event_map}
+	\includegraphics[width=0.7\textwidth]{imgs/event_map}
 		\captionof{figure}{The event map screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -546,7 +546,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{twitter}
+	\includegraphics[width=0.7\textwidth]{imgs/twitter}
 	\captionof{figure}{The twitter dialog fragment}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -556,7 +556,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Subscription list}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{subscription_list}
+	\includegraphics[width=0.7\textwidth]{imgs/subscription_list}
 	\captionof{figure}{The subscription list screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -566,7 +566,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Subscription creation}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{subscription_create}
+	\includegraphics[width=0.7\textwidth]{imgs/subscription_create}
 		\captionof{figure}{The subscription creation screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -576,7 +576,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Event list}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{event_list}
+	\includegraphics[width=0.7\textwidth]{imgs/event_list}
 		\captionof{figure}{The event list screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -586,7 +586,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Event creation}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{event_create_2}
+	\includegraphics[width=0.7\textwidth]{imgs/event_create_2}
 		\captionof{figure}{The event creation screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -596,7 +596,7 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Event detail}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{event_detail}
+	\includegraphics[width=0.7\textwidth]{imgs/event_detail}
 		\captionof{figure}{The event detail screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -606,17 +606,17 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Notifications}
 \begin{minipage}{0.33\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{notification_android.png}
+	\includegraphics[width=0.7\textwidth]{imgs/notification_android.png}
 	\captionof{figure}{Notification on Android phone}
 \end{minipage}
 \begin{minipage}{0.33\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{notification_wear_text.png}
+	\includegraphics[width=0.7\textwidth]{imgs/notification_wear_text.png}
 	\captionof{figure}{Notification text on Android Wear}
 \end{minipage}
 \begin{minipage}{0.33\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{notification_wear_map.png}
+	\includegraphics[width=0.7\textwidth]{imgs/notification_wear_map.png}
 	\captionof{figure}{Notification map on Android Wear}
 \end{minipage}
 \par\bigskip
@@ -682,8 +682,6 @@ We used this library to easily display Tweets in a fancy way, indeed it fully ma
 % ______________________
 
 \chapter{UML diagrams}
-
-\section{Use cases diagrams}
 
 \section{Class diagrams}
 
