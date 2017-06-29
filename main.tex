@@ -758,133 +758,182 @@ This section describes the results of the main tests done on Neighborhod Securit
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
-	\textbf{Test Case} 	& \textbf{Create event} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	\textbf{Test Case} 	& \textbf{Create event (1)} \\ \hline
+	Goal 				& Create event using Address \\ \hline
+	Input 				& After inserting a description, an event type and a location obtained using Google Place Autcomplete, press the "Submit" button in the Action Bar \\ \hline
+	Expected outcome 	& The event is created \\ \hline
+	Actual outcome 		& CORRECT: the parameters are valid, so if network is available and a user logged in, the event is created and interested users are notified \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
-	\textbf{Test Case} 	& \textbf{Disable notification for a sub.} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	\textbf{Test Case} 	& \textbf{Create event (2)} \\ \hline
+	Goal 				& Create event using Coordinates \\ \hline
+	Input 				& After inserting a description, an event type and a pair of legal coordinates, press the "Submit" button in the Action Bar \\ \hline
+	Expected outcome 	& The event is created \\ \hline
+	Actual outcome 		& CORRECT: the parameters are valid, so if network is available and a user logged in, the event is created and interested users are notified \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
-	\textbf{Test Case} 	& \textbf{Enable notification for a sub.} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	\textbf{Test Case} 	& \textbf{Disable notification for a subscription} \\ \hline
+	Goal 				& Disable notification for a subscription \\ \hline
+	Input 				& Toggle the switch for the desired subscription in the user's Subscription List \\ \hline
+	Expected outcome 	& The switch is set on "off" and the bell icon changes  \\ \hline
+	Actual outcome 		& CORRECT: if the subscription was previously enabled, as soon as the user moves the switch, the notification is disabled. If an event is received for that subscription, it will not be notified. \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Enable notification for a subscription} \\ \hline
+	Goal 				& Enable notification for a subscription \\ \hline
+	Input 				& Toggle the switch for the desired subscription in the user's Subscription List \\ \hline
+	Expected outcome 	& The switch is set on "on" and the bell icon changes \\ \hline
+	Actual outcome 		& CORRECT: if the subscription was previously disabled, as soon as the user moves the switch, the notification is enabled. If an event is received for that subscription, it will be notified. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
 	\textbf{Test Case} 	& \textbf{Delete event} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	Goal 				& Delete event \\ \hline
+	Input 				& Long click on a current user's event on Event List \\ \hline
+	Expected outcome 	& The event is deleted and disappears from the list \\ \hline
+	Actual outcome 		& CORRECT: if the user is the creator of the selected event, after long clicking on the event, a popup menu will appear in order to allow the user to delete the event. Network connection is required in order to perform the operation. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
 	\textbf{Test Case} 	& \textbf{Delete subscription} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	Goal 				& Delete subscription \\ \hline
+	Input 				& Long click on a current user's subscription on Subscription List \\ \hline
+	Expected outcome 	& The subscription is deleted and disappears from the list \\ \hline
+	Actual outcome 		& CORRECT: after long clicking on the subscription, a popup menu will appear in order to allow the user to delete the subscription. Network connection is required in order to perform the operation. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
 	\textbf{Test Case} 	& \textbf{Vote event} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	Goal 				& Vote the event \\ \hline
+	Input 				& Click the star button on Event Detail screen \\ \hline
+	Expected outcome 	& The current user vote is added and he is notified of the operation \\ \hline
+	Actual outcome 		& CORRECT: if the button is not disabled, which means that the user has already voted the event, as soon as he clicks, the vote is added to the event. A snackbar is shown in order to undo the operation and the button icon changes. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
 	\textbf{Test Case} 	& \textbf{Undo Vote event} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	Goal 				& Undo Vote event \\ \hline
+	Input 				& After having voted an event, click the Undo button on the bottom bar \\ \hline
+	Expected outcome 	& The current user vote is removed and he is notified of the operation \\ \hline
+	Actual outcome 		& CORRECT: as soon as the user clicks the button, the event vote is removed and the snackbar disappears. After that the user can redo the vote. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
 	\textbf{Test Case} 	& \textbf{Login using Facebook} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	Goal 				& Login using Facebook \\ \hline
+	Input 				& Click on Facebook button in Authentication Activity \\ \hline
+	Expected outcome 	& The user is logged in \\ \hline
+	Actual outcome 		& CORRECT: after clicking on the button, the user is asked to access using his Facebook account and to grant the application permission to read profile information. If the user accepts, he is sucessfully authenticated in Neighborhood Security. If this is the first user access, then his informations are stored on the remote database.  A network connection is required to perform the operation. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
 	\textbf{Test Case} 	& \textbf{Login using Google} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	Goal 				& Login using Google \\ \hline
+	Input 				& Click on Google button in Authentication Activity \\ \hline
+	Expected outcome 	& The user is logged in \\ \hline
+	Actual outcome 		& CORRECT: after clicking on the button, the user is asked to access using his Google account and to grant the application permission to read profile information. If the user accepts, he is successfully authenticated in Neighborhood Security. If this is the first user access, then his informations are stored on the remote database. A network connection is required to perform the operation. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
-	\textbf{Test Case} 	& \textbf{Login using email} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	\textbf{Test Case} 	& \textbf{Login using Email and Password} \\ \hline
+	Goal 				& Login using Email and Password \\ \hline
+	Input 				& Click on "Sign in" in Email Authentication activity \\ \hline
+	Expected outcome 	& The user is logged in \\ \hline
+	Actual outcome 		& CORRECT: if the user inserts a valid email and password pair, after clicking on the "Sign in" button he is authenticated. A network connection is required to perform the operation. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
-	\textbf{Test Case} 	& \textbf{Register using email} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	\textbf{Test Case} 	& \textbf{Register using Email and Password} \\ \hline
+	Goal 				& Register using Email and Password\\ \hline
+	Input 				& Click on "Register now" and then "Sign up" in Email Authentication activity \\ \hline
+	Expected outcome 	& The user is registered \\ \hline
+	Actual outcome 		& CORRECT: if the user inserts valid email, password and username, after clicking on the "Sign up" button a new account is registered. A network connection is required to perform the operation. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
-	\textbf{Test Case} 	& \textbf{send rest password email} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	\textbf{Test Case} 	& \textbf{Send Reset Password email} \\ \hline
+	Goal 				& Send Reset Password email \\ \hline
+	Input 				& Click on "Forgot password" and then "Reset password" in Email Authentication activity \\ \hline
+	Expected outcome 	& The user receives an email with the instructions to perform password reset \\ \hline
+	Actual outcome 		& CORRECT: if the user inserts his email, after clicking "Reset password" button, an email will be sent to his address. A network connection is required to perform the oepration. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
-	\textbf{Test Case} 	& \textbf{Update events when moving map} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	\textbf{Test Case} 	& \textbf{Show event markers when moving map (1)} \\ \hline
+	Goal 				& Show event markers when moving map \\ \hline
+	Input 				& Move the map in Event Map activity using gestures\\ \hline
+	Expected outcome 	& Events matching the displayed portion of map are shown \\ \hline
+	Actual outcome 		& CORRECT: as soon as the user moves the map using his fingers, events available locally are shown meanwhile a search is performed on the webservice, in order to search for new events to display. \\ \hline
 \end{tabularx}
-
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Show event markers when moving map (2)} \\ \hline
+	Goal 				& Show event markers when moving map \\ \hline
+	Input 				& Move the map in Event Map activity using Address search\\ \hline
+	Expected outcome 	& Events matching the displayed portion of map are shown \\ \hline
+	Actual outcome 		& CORRECT: as soon as the user selects a place using Place Autocomplete search, the map is moved to center the desired location, events available locally are shown meanwhile a search is performed on the webservice, in order to search for new events to display. \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Show Tweet markers when moving map (1)} \\ \hline
+	Goal 				& Show tweet markers when moving map \\ \hline
+	Input 				& Move the map in Event Map activity using gestures\\ \hline
+	Expected outcome 	& Tweets matching the displayed portion of map are shown \\ \hline
+	Actual outcome 		& CORRECT: as soon as the user moves the map using his fingers, a search for Tweets matching the displayed location and the hashtag \#NeighborhoodSecurity is performed, the resulting Tweets are displayed. \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Show Tweet markers when moving map (2)} \\ \hline
+	Goal 				& Show tweet markers when moving map \\ \hline
+	Input 				& Move the map in Event Map activity using Address search\\ \hline
+	Expected outcome 	& Events matching the displayed portion of map are shown \\ \hline
+	Actual outcome 		& CORRECT: as soon as the user selects a place using Place Autocomplete search, the map is moved to center the desired location, a search for Tweets matching the displayed location and the hashtag \#NeighborhoodSecurity is performed, the resulting Tweets are displayed. \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Show Tweet content} \\ \hline
+	Goal 				& Show Tweet content \\ \hline
+	Input 				& Click on Tweet marker on Event Map activity\\ \hline
+	Expected outcome 	& The Tweet content is displayed on a dialog \\ \hline
+	Actual outcome 		& CORRECT: When the user clicks on the Tweet marker, a DialogFragment is shown in order to display the content of the selected Tweet. The user can further click on the dialog, in order to open the Tweet in the browser or Twitter application. \\ \hline
+\end{tabularx}
 
 % ______________________
 % chapter Cost Estimation
