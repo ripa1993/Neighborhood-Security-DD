@@ -538,13 +538,20 @@ In this section we will provide a certain number of screenshots of the applicati
 \section{Map}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\textwidth]{event_map_1}
+	\includegraphics[width=0.7\textwidth]{event_map}
 		\captionof{figure}{The event map screen}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	 The user can move and zoom in or out with the gesture he is used to (scroll and pinch-in / pinch-out). There are two class of markers that are displayed on the map: event marker and cluster marker. An event marker is characterized by an icon that suggests the kind of event that took place in the given position. By clicking on the event, the user will move the the event's detail page. The cluster marker instead, is characterized by the number of event that have been reported in that location. By clicking on the cluster, the user will se the list of events that happenend in that location. Users can also search for a  location by using the search form provided by Google Place Autocomplete, that also suggests places meanwhile the user is writing. By long clicking on a point of the map, a dialog is displayed showing addictional functions to the user, allowing him to create an event or subscription at that specified point or to obtain th list of events that happened near there. Also, a floating action button is displayed, it is a simple shortcut to the event create page.
 \end{minipage}
-
+\begin{minipage}{0.5\textwidth}
+	\centering
+	\includegraphics[width=0.7\textwidth]{twitter}
+	\captionof{figure}{The twitter dialog fragment}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	When the user clicks on a Twitter marker, a DialogFragment is shown in order to display the Tweet content. In order to appera on the map, the Tweets should use the hashtag \textbf{\#NeighborhoodSecurity} and provide fine or coarse location. Fine location is pure GPS coordinates, instead coarse location is based on point of interest, such as cities or neighborhoods. By clicking on the Tweet, Twitter application, if available, or website will open in order to allow further interaction with the user.
+\end{minipage}
 
 \section{Subscription list}
 \begin{minipage}{0.5\textwidth}
@@ -596,6 +603,25 @@ In this section we will provide a certain number of screenshots of the applicati
 	In this page the user obtains the full details of an event, that are displayed on a list. These details include date, type of event, description, location and number of events. The position of the event is also displayed in the map in the top portion of the screen, this is useful to easily localize the location where it took place. The button with a star is the way the user can vote an event. By clicking on it, the vote will be added and a snack bar is displayed to undo the operation, in case the user misclicked. The star will become full once the event has been voted.
 \end{minipage}
 
+\section{Notifications}
+\begin{minipage}{0.33\textwidth}
+	\centering
+	\includegraphics[width=0.7\textwidth]{notification_android.png}
+	\captionof{figure}{Notification on Android phone}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+	\centering
+	\includegraphics[width=0.7\textwidth]{notification_wear_text.png}
+	\captionof{figure}{Notification text on Android Wear}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+	\centering
+	\includegraphics[width=0.7\textwidth]{notification_wear_map.png}
+	\captionof{figure}{Notification map on Android Wear}
+\end{minipage}
+\par\bigskip
+Notifications are used to show to the user informations about the events that he is interested in, since they belong to one of his active subscription. By clicking on phone notification, the application will open and display the event details. On the wearable device instead, the notification is composed by two pages: on the first one, the user can see the location and description of the event, on the second one, a map showing the location of the event.
+
 % ______________________
 % chapter External Services
 % ______________________
@@ -634,6 +660,11 @@ This secondary service is used to obtain the device's last known position, it is
 \section[Facebook]{Facebook\footnote{Facebook, \url{https://developers.facebook.com/}}}
 The service is used to obtain the Facebook user profile and email, that is then used by Firebase Authentication to handle new user creation or authentication.
 
+\section[Twitter]{Twitter\footnote{Twitter, \url{https://dev.twitter.com/}}}
+\subsection{Core}
+This is the core of the Twitter service, it provides a way to interact with the REST Api of Twitter and perform searches across tweets. We used this service in order to be able to display Tweets on our Event Map. The library easily allowed us to search for Tweets matching our hashtag \#NeighborhoodSecurity and near a particular location.
+\subsection{TweetUi}
+We used this library to easily display Tweets in a fancy way, indeed it fully matches Twitter style guidelines when displaying the given Tweet.
 \section{Other minor services}
 \par Other libraries and services of seconday importance have been used in the application, mostly to make the development easy and quick, without the need to reimplement some basic functions.
 \begin{itemize}
@@ -679,30 +710,40 @@ This section describes the results of the main tests done on Neighborhod Securit
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
 	\textbf{Test Case} 	& \textbf{Display subscription list} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	Goal 				& Display subscription list \\ \hline
+	Input 				& Select "Subscription" button in "Home" activity \\ \hline
+	Expected outcome 	& The list of subscription of the active user is displayed \\ \hline
+	Actual outcome 		& CORRECT: if the user is authneticated, after loading subscription from the local storage and downloading new ones from the remote service, subscriptions are displayed in a list meanwhile the new ones stored in local storage \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
 	\textbf{Test Case} 	& \textbf{Display event map} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	Goal 				& Display event map \\ \hline
+	Input 				& Select "Map" button in "Home" activity \\ \hline
+	Expected outcome 	& The event map should load and display events near the user position \\ \hline
+	Actual outcome 		& CORRECT: if the application was granted permission to access current location, the map will load centered in the user position meanwhile events are loaded from disk, refreshed from the remote service and stored on the device. \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
 	\hline
-	\textbf{Test Case} 	& \textbf{Create subscription} \\ \hline
-	Goal 				& 1 \\ \hline
-	Input 				& 2 \\ \hline
-	Expected outcome 	& 3 \\ \hline
-	Actual outcome 		& 4 \\ \hline
+	\textbf{Test Case} 	& \textbf{Create subscription (1)} \\ \hline
+	Goal 				& Create subscribtion using Address\\ \hline
+	Input 				& After selecting a radius in the range 0-2000 and a location obtained using Google Place Autcomplete, press the "Submit" button in the Action Bar \\ \hline
+	Expected outcome 	& The subscription is created \\ \hline
+	Actual outcome 		& CORRECT: the parameters are valid, so if network is available and a user logged in, the subscription is created and becomes active \\ \hline
+\end{tabularx}
+\bigskip
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+	\hline
+	\textbf{Test Case} 	& \textbf{Create subscription (2)} \\ \hline
+	Goal 				& Create subscribtion using Coordinates\\ \hline
+	Input 				& After selecting a radius in the range 0-2000 and a pair of legal coordinates, press the "Submit" button in the Action Bar \\ \hline
+	Expected outcome 	& The subscription is created \\ \hline
+	Actual outcome 		& CORRECT: the parameters are valid, so if network is available and a user logged in, the subscription is created and becomes active \\ \hline
 \end{tabularx}
 \bigskip
 \noindent
