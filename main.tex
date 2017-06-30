@@ -698,11 +698,32 @@ TODO
 \section{Class diagrams}
 \begin{figure}[H]
  \centering
- \includegraphics[width=\textwidth]{diagrams/class_diagram.png}
+ \includegraphics[width=\textwidth]{diagrams/class/class_diagram.png}
  \caption{Class diagram}
 \end{figure}
 \section{Sequence diagrams}
+In this section we provide few sequence diagrams concerning the flow of the logical operations performed by our application once a certain operation is executed. These diagrams will show the interaction between methods and activities, rather than user and application.
 
+\bigskip We decided to include only two examples of Sequence diagrams, in order to make the document not too complex and less readable.
+
+\bigskip The two operation chosen are:
+\begin{itemize}
+	\item Displaying events given an area. This diagram shows how an activity can obtain a list of events, for example with the objective of displying them on a map or on a list. The activity asks NSService to retrieve the requested data, this class acts as a controller and interacts with both the Rest service and the local storage.
+	\bigskip\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrams/sequence/sequence_diag_eventbyarea.png}
+		\caption{Displaying events by area sequence diagram}
+	\end{figure}
+
+	\pagebreak
+	\item Reaching Event Detail activity. This diagram shows all the possible way to reach the Event Detail activity throughout all the possible user interactions, notice that some of the ways require particular conditions, such as the user to be logged in or to have received a notification	
+	\bigskip\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrams/sequence/sequence_diag_eventdetail.png}
+		\caption{Reaching Event Detail activity sequence diagram}
+	\end{figure}
+
+\end{itemize}
 % ______________________
 % chapter Test cases
 % ______________________
