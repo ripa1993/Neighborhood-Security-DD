@@ -696,9 +696,10 @@ These diagrams show the flow of operation triggered by a specific actor when it 
 \subsection{Logged user interaction}
 TODO
 \section{Class diagrams}
+We decided to include a cumulative class diagram for our application. The structure is simple: almost all activity classes interact with their respective fragments, which may interact with the controller in order to show information to the user. The controller can interact with both the rest service and the local database. 
 \begin{figure}[H]
  \centering
- \includegraphics[width=\textwidth]{diagrams/class/class_diagram.png}
+ \includegraphics[width=0.95\textwidth]{diagrams/class/class_diagram.png}
  \caption{Class diagram}
 \end{figure}
 \section{Sequence diagrams}
