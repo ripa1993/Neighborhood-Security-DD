@@ -722,11 +722,17 @@ These diagrams show the flow of operation triggered by a specific actor when it 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{diagrams/use_case/unlogged_user.png}
-	\caption{Use case: unlogged user}
+	\caption{Use case: Unlogged user}
 \end{figure}
 
 \subsection{Logged user interaction}
-TODO
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagrams/use_case/authenticated_user.png}
+	\caption{Use case: Logged user}
+\end{figure}
+\pagebreak
+
 \section{Class diagrams}
 We decided to include a cumulative class diagram for our application. The structure is simple: almost all activity classes interact with their respective fragments, which may interact with the controller in order to show information to the user. The controller can interact with both the rest service and the local database. 
 \begin{figure}[H]
