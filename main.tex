@@ -177,6 +177,7 @@ Here we list the core functionalities that can be found in our application. We d
 \item Authenticated users can vote the event. The more an event has been voted, the more we consider reliable the reported event.
 \end{itemize}
 
+\pagebreak
 \item Subscription list
 \begin{itemize}
 \item Shows a list of subscriptions, if any, of the currently logged in user. The user can enable or disable notifications about a particular subscription and delete them if he is no longer interested in.
@@ -213,6 +214,7 @@ In this section we present the requirements necessary to the correct behavior of
 \item The application has to provide a way to browse events and to manage active subscriptions.
 \end{itemize}
 
+\pagebreak
 \underline{Home requirements}
 \begin{itemize}
 \item On first run, Home activity should introduce the application features to the user.
@@ -655,7 +657,7 @@ Notifications are used to show the user informations about the events that he is
 % ______________________
 % chapter External Services
 % ______________________
-\chapter{External services}
+\chapter{External services and Libraries}
 We have used several external services for our application, some of them are necessary for the proper behavior of the system, such as Retrofit to communicate with the server-side part of the application, and other only to enrich the overall experience of the user. They are completely transparent to the user and fully integrated within the application.
 
 The main advantage in using these kind of services is first of all the ease to not to have to implement specific portion of code in order to achieve the same result that these external services already provide.
@@ -697,7 +699,7 @@ The service is used to obtain the Facebook user profile and email, that is then 
 This is the core of the Twitter service, it provides a way to interact with the REST Api of Twitter and perform searches across tweets. We used this service in order to be able to display Tweets on our Event Map. The library easily allowed us to search for Tweets matching our hashtag \#NeighborhoodSecurity and near a particular location.
 \subsection{TweetUi}
 We used this library to easily display Tweets in a fancy way, indeed it fully matches Twitter style guidelines when displaying the given Tweet.
-\section{Other minor services}
+\section{Other minor libraries}
 \par Other libraries and services of secondary importance have been used in the application, mostly to make the development easy and quick, without the need to reimplement some basic functions.
 \begin{itemize}
 \item Glide\footnote{Glide, \url{https://github.com/bumptech/glide}}: an image loading and caching library, used to download the user profile picture and the static Google Map that is displayed on wearable devices during the notification of an event.
