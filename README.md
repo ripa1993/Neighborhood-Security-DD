@@ -18,3 +18,7 @@ Written in LaTeX
 - UML Diagrams
 - Test Cases
 - Cost Estimation
+
+## Useful Links:
+- [Android Application Source Code](https://github.com/ripa1993/NeighborhoodSecurity/)
+- [REST API Backed Source Code](https://github.com/ripa1993/NeighborhoodSecurityBackend)
